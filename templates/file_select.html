@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <script type="text/javascript" src="{{url_for('static', filename='file_select.js')}}"></script>
+    <script type="text/javascript">
+        function on_load_click(){
+            list_file(  JSON.parse('{{ file_list | tojson | safe}}') );
+        }
+    </script>
+    <head>
+        <title> selection </title>
+    </head>
+    <body>
+        <button type="button" onclick="on_load_click()">Load Logs</button>
+        <div>
+            <label for="year_select">Year select:</label>
+            <select id="year_select" multiple=true onchange="on_year_change()"></select>
+
+            <label for="month_select">Month select:</label>
+            <select id="month_select" multiple=true onchange="on_month_change()"></select>
+
+            <label for="day_select">Day select:</label>
+            <select id="day_select" multiple=true></select>
+        </div>
+        <div>
+            <button type="button" onclick="on_view_data()">View Selected Data</button>
+        </div>
+    </body>
+</html>
