@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+    <script src='https://cdn.plot.ly/plotly-2.4.2.min.js'></script>
     <script type="text/javascript" src="{{url_for('static', filename='file_select.js')}}"></script>
     <script type="text/javascript">
         function on_load_click(){
@@ -24,5 +25,9 @@
         <div>
             <button type="button" onclick="on_view_data()">View Selected Data</button>
         </div>
+        <div id="o2_plot"></div>
+        <div id="co2_plot"></div>
+        <div id="temp_plot"></div>
+        <div id="hum_plot"></div>
     </body>
 </html>

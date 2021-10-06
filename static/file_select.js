@@ -106,5 +106,39 @@ function on_view_data() {
 }
 
 function recv_graph_data(target) {
-    console.log(target.currentTarget.responseText);
+    plant_data = JSON.parse(target.currentTarget.responseText)
+    console.log(plant_data);
+
+    var o2_trace = {
+        x: plant_data[0],
+        y: plant_data[1]['o2'],
+        mode: 'markers',
+        type: 'scatter'
+    };
+
+    var co2_trace = {
+        x: plant_data[0],
+        y: plant_data[1]['co2'],
+        mode: 'markers',
+        type: 'scatter'
+    };
+
+    var temp_trace = {
+        x: plant_data[0],
+        y: plant_data[1]['temp'],
+        mode: 'markers',
+        type: 'scatter'
+    };
+
+    var hum_trace = {
+        x: plant_data[0],
+        y: plant_data[1]['hum'],
+        mode: 'markers',
+        type: 'scatter'
+    };
+
+    Plotly.newPlot('o2_plot', [o2_trace])
+    Plotly.newPlot('co2_plot', [co2_trace])
+    Plotly.newPlot('temp_plot', [temp_trace])
+    Plotly.newPlot('hum_plot', [hum_trace])
 }
