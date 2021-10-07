@@ -1,0 +1,18 @@
+<!doctype html>
+<title>Carl's Plant Data</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src='https://cdn.plot.ly/plotly-2.4.2.min.js'></script>
+<script type="text/javascript" src="{{url_for('static', filename='file_select.js')}}"></script>
+
+<nav class="nav-bar">
+  <h1 class="nav-title">Carl's Plant Data</h1>
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>
